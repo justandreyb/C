@@ -73,4 +73,5 @@ void main(void)
 			printf(" %d ", matrix[count_x][count_y]);			
 		printf("\n");
 	}
+	return;
 }
