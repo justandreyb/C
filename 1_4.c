@@ -110,5 +110,5 @@ void main(void)
             printf(" %s ", ChangingWords[count][count_y]);           
         printf("\n");
     }
-
+    return;
 }   	

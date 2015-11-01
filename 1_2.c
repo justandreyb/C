@@ -25,7 +25,7 @@ void main(void)
 	for (count_x = 0; count_x <= (x - 1); count_x++)
 	{
 		for (count_y = 0; count_y <= (y - 2); count_y++)
-			printf(" %d ", matrix[count_x][count_y]);			
+			printf(" %3d ", matrix[count_x][count_y]);			
 		printf("\n");
 	}
 
@@ -70,7 +70,7 @@ void main(void)
 	for (count_x = 0; count_x <= (x - 1); count_x++)
 	{
 		for (count_y = 0; count_y <= (y - 2); count_y++)
-			printf(" %d ", matrix[count_x][count_y]);			
+			printf(" %3d ", matrix[count_x][count_y]);			
 		printf("\n");
 	}
 	return;
