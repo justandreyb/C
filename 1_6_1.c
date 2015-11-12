@@ -31,6 +31,7 @@ void main (void) {
 	{	
 		char Infile[FILECONTAIN];
 		count = 0;
+		//GetStdHandle(stdin) = "Hello!";
 		while ((Infile[count] = fgetc (in_file)) != EOF) 
 		{
 			if (Infile[count] == '\n') 
@@ -46,6 +47,7 @@ void main (void) {
 		fclose(in_file); 
     	
     	printf("\nLength: %d", strlen(Infile));
+    	//SetConsoleCursorPosition = SetConsoleCursorPosition - 2;
 
     	char count_sort;
     	for (count_sort = 1; count_sort < strlen(Infile); count_sort++) 
@@ -70,6 +72,7 @@ void main (void) {
 				}
 			fclose(out_file);
 			printf("\nDone !");
+			system("notepad C:\\C\\C\\output.txt");
 		}
 	}
 	return;
