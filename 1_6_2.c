@@ -28,7 +28,7 @@ void CreateNewFile (void) {
         }
     }
     FILE *new_file;
-    if ((new_file = fopen(filename,"w+")) == NULL)
+    if ((new_file = fopen(filename,"w")) == NULL)
 		printf("Error in create file %s\n",filename);
 	else 
 	{	
