@@ -19,11 +19,6 @@ struct Struct_Stack
 typedef struct Struct_Stack STACK;
 STACK *StackIn = NULL, *StackCheck = NULL;
 
-/*
-void push(STACK *, char Letter);
-char pop(STACK *);
-void display(STACK *);
-*/
 /*  Function to add an element to the stack */
 void push (STACK **Stack, char Letter)
 {
@@ -85,23 +80,59 @@ void main(void) {
             break;
         }
     }
-    /*Length = div(strlen(Elements)-1,2);
-    printf("Number of elements in text : %d \n", strlen(Elements));
-	printf("\nResult : %d.%d\n", Length.quot, Length.rem);
-    */
+    Length = div(strlen(Elements)-1,2);
+   
+    char CenterLetter = 0;
     for (count = 0; count < strlen(Elements); count++)
 		push(&StackIn, Elements[count]);
-	/*printf("\nResult : %d.%d\n", Length.quot, Length.rem);
+	
 	if (Length.rem == 0)
 		for (count = (strlen(Elements)-2); count >= Length.quot; count--)	
-			{push(StackCheck, Elements[count]);
-				printf("I'M IN 1");
-				}
+			push(&StackCheck, Elements[count]);
 	else
-		for (count = (strlen(Elements)-2); count > Length.quot; count--) //Check loPol	
-			{push(StackCheck, Elements[count]);
-				printf("I'M IN 2 ; (Stack.Next = %d)\n",StackCheck->Next);
+	{	
+		CenterLetter = Length.quot;
+		for (count = (strlen(Elements)-2); count > Length.quot; count--) 	
+			push(&StackCheck, Elements[count]);
+	}
+
+	char Flag = 0, StackIn_Letter, StackCheck_Letter;
+	for (count = 0; count < strlen(Elements); count++)
+	{
+		StackIn_Letter = pop(&StackIn);	
+		if (Length.rem == 0)
+		{
+			if (count > Length.quot)
+			{	
+				StackCheck_Letter = pop(&StackCheck);
+				if (StackIn_Letter != StackCheck_Letter)
+				{
+					Flag = 0;
+					break;
 				}
-	*/
-	display(StackIn);
+				else
+					Flag = 1;
+			}
+		}
+		else
+		{	
+			if (count > Length.quot + 1 )
+			{	
+				StackCheck_Letter = pop(&StackCheck);
+				if (StackIn_Letter != StackCheck_Letter)
+				{
+					Flag = 0;
+					break;
+				}
+				else
+					Flag = 1;
+			}	
+		}
+	}
+
+	if (Flag != 0)
+		printf("\n Your text is a polynomial !");
+	else
+		printf("\n Your text isn't a polynomial !");
+
 }
